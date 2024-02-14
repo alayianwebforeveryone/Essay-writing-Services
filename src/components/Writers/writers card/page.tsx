@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import ReactRating from "react-rating";
-import { FaStar } from "react-icons/fa";
+// import ReactRating from "react-rating";
+// import { FaStar } from "react-icons/fa";
+
+
 
 import {
   Card,
@@ -18,7 +20,7 @@ interface cardProps {
   title: string;
   reviews: number;
   body: string;
-  rating: number;
+  rating: string;
   // ratingInStar: number;
 }
 
@@ -35,14 +37,8 @@ function WritersCard(props: cardProps) {
         <CardDescription className="flex text-sm text-center font-bold justify-center w-full ">
           {rating} &nbsp;
           <div className="mt-[1px]">
-            <ReactRating
-              readonly
-              initialRating={rating}
-              emptySymbol={<FaStar style={{ color: "#adaba1" }} />} // Empty star icon
-              fullSymbol={<FaStar style={{ color: "#e0c709" }} />} // Filled star icon
-              // onChange={newRating => setStaticRating(newRating)}
-            />
-          </div>{" "}
+           </div>
+
           &nbsp; ({reviews} Reviews)
         </CardDescription>
       </CardHeader>

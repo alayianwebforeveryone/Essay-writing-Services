@@ -14,7 +14,7 @@ const data = [
     reviews: 233,
     title: "Smith T",
     body: "<b>Competencies</b>: Business and Finance Psychology, Liberal Arts & Humanities",
-    rating: 2.5,
+    rating: "2.5",
   },
   {
     reviews: 133,
@@ -26,31 +26,31 @@ const data = [
     reviews: 220,
     title: "W Kaylin",
     body: "<b>Competencies</b>: Business and Finance Psychology, Liberal Arts & Humanities",
-    rating: 3,
+    rating: "3",
   },
   {
     reviews: 420,
     title: " P Jasyal ",
     body: "<b>Competencies</b>: Education and Finance Psychology, Liberal Arts & Humanities",
-    rating: 3,
+    rating: "3",
   },
   {
     reviews: 310,
     title: " R Khayam ",
     body: "<b>Competencies</b>: Business and Finance Psychology, Liberal Arts & Humanities",
-    rating: 3.5,
+    rating: "3.5",
   },
   {
     reviews: 350,
     title: " U Mosa ",
     body: "<b>Competencies</b>: Englich and Finance Psychology, Science Arts & Humanities",
-    rating: 2.5,
+    rating: "2.5",
   },
   {
     reviews: 350,
     title: " G Kumar ",
     body: "<b>Competencies</b>: History and Finance Psychology, Liberal Arts & Humanities",
-    rating: 2.5,
+    rating: "2.5",
   },
 ];
 
