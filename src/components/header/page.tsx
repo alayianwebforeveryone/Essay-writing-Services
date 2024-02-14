@@ -14,7 +14,7 @@ function NavBar() {
               {/* LOGO */}
               <Link href="/">
                 <Image
-                  src="/logo.png"
+                  src="/Logo.png"
                   alt="logo"
                   height="50"
                   width="100"
