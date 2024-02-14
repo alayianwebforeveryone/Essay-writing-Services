@@ -1,113 +1,283 @@
+"use client";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Home() {
+  let [page, setPage] = useState(0);
+
+  const Increment = () => {
+    setPage(page++);
+  };
+  const decreament = () => {
+    if (page > 0) {
+      setPage(page--);
+    }
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <main className="">
+      <div className="flex justify-around    w-full h-auto py-48  border ">
+        <div className="w-[40%]  ">
+          <h4 className="headTwo">Essay writing service your perfect essay</h4>
+          <p className="text-md mt-4 leading-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+            perferendis eius, sapiente reiciendis porro cumque, ut veniam amet
+            nam veritatis accusantium exercitationem ullam odit voluptatibus aut
+            corporis nihil inventore a.
+          </p>
+          <Button className="rounded-full mt-10 bg-purple-700 py-2 text-white hover:text-black hover:bg-purple-400 px-2">
+            Start Writing Services
+          </Button>
+        </div>
+        <div className=" w-[30%]">
+          <div className="absolute top-20 right-16  ">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+              src="/circleHeader.png"
+              alt="circle-design"
+              width="550"
+              height="700"
+            ></Image>
+          </div>
+          <div className="py-4  flex flex-col justify-center items-center relative mt-4 px-2 border rounded-2xl w-[70%] bg-purple-500">
+            <h4 className="text-center text-white font-bold text-lg">
+              Calculate Price
+            </h4>
+            <button className=" w-[80%]  mx-auto mt-4 bg-white rounded-lg text-sm text-black  border py-1  hover:text-black hover:bg-purple-400 ">
+              Analytical Essay
+            </button>
+
+            <button
+              title=""
+              className="w-[80%] mx-auto mt-4 bg-white rounded-lg text-sm text-black  border py-1  hover:text-black hover:bg-purple-400  "
+            >
+              School Essay
+            </button>
+
+            <button className=" w-[80%] mx-auto -py-1 mt-4 bg-white rounded-lg text-sm text-black  border py-1  hover:text-black hover:bg-purple-400 ">
+              With in 24 hour
+            </button>
+
+            <div className="flex justify-between gap-12 border px-2 py-1 mt-4 text-center">
+              <button
+                onClick={Increment}
+                className="border leading-2 -py  px-2 hover:bg-slate-600 text-white bg-purple-800 rounded text-lg"
+              >
+                +
+              </button>
+              <p>{page}</p>
+              <button
+                onClick={decreament}
+                className="border leading-4 px-[11px] hover:bg-slate-600 text-white bg-purple-800 rounded text-lg"
+              >
+                -
+              </button>
+            </div>
+            <Button className=" w-[90%] mx-auto text-white mt-4 bg-blue-400 rounded-lg text-sm    border -py-1  hover:text-black hover:bg-purple-400 ">
+              Order now
+            </Button>
+          </div>
+        </div>
+      </div>
+      {/* --------------------------//*Discover the un parallel Advantages--------------- */}
+
+      <div className="py- border px-2 ">
+        <h1 className="text-center mb-8 headTwo">
+          Discover the unparalled advantages of our services{" "}
+        </h1>
+        <div className=" flex justify-between px-16 ">
+          {/* //! ---------------left text */}
+          <div className="flex justify-center gap-4 flex-col">
+            <div className="">
+              <h5 className="text-lg font-bold">
+                Carefully selected essay writers
+              </h5>
+              <p className="text-sm">
+                Stay completely anonymous with our paper writing service.
+              </p>
+            </div>
+            <section className="">
+              <h5 className="text-lg font-bold">Rapid writing Services:</h5>
+              <p className="text-sm">
+                We prioritize both speed and excellence in our writing service.
+              </p>
+            </section>
+          </div>
+          {/* //! center part */}
+          <div className=" border-purple-500 border-2 pb-1 ">
+            <div className="text-center mb-4">
+              <h3>Feature you will get free</h3>
+            </div>
+            <div className="flex justify-center gap-10 px-4 ">
+              <div>
+                <ul className="text-sm">
+                  <li className="mt-2">Unlimeted Revisions</li>
+                  <li className="mt-2">Formatting</li>
+                  <li className="mt-2">Turntin Report</li>
+                  <li className="mt-2">Title Pag</li>
+                  <li className="mt-2">Proof Reading</li>
+                  <li className="mt-2">Unlimeted Revisions</li>
+                </ul>
+              </div>
+              <div>
+                <ul className="text-sm">
+                  <li className="mt-2">
+                    {" "}
+                    <s>$10.00</s> <span className=" px-2 bg-red-500">Free</span>
+                  </li>
+                  <li className="mt-2">
+                    {" "}
+                    <s>$20.00</s> <span className=" px-2 bg-red-500">Free</span>
+                  </li>
+                  <li className="mt-2">
+                    {" "}
+                    <s>$30.00</s> <span className=" px-2 bg-red-500">Free</span>
+                  </li>
+                  <li className="mt-2">
+                    {" "}
+                    <s>$25.00</s> <span className=" px-2 bg-red-500">Free</span>
+                  </li>
+                  <li className="mt-2">
+                    {" "}
+                    <s>$15.00</s> <span className=" px-2 bg-red-500">Free</span>
+                  </li>
+                  <li className="mt-2">
+                    {" "}
+                    <s>$5.000</s> <span className=" px-2 bg-red-500">Free</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <Button className="w-[80%] flex justify text-sm -py-1 mx-auto mt-6 rounded-sm bg-purple-500">
+                Write my essay
+              </Button>
+            </div>
+          </div>
+          {/* //! ---------------rigth text */}
+          <div className="flex justify-center gap-4 flex-col">
+            <section className="">
+              <h5 className="text-lg font-bold">
+                Carefully selected essay writers
+              </h5>
+              <p className="text-sm">
+                Stay completely anonymous with our paper writing service.
+              </p>
+            </section>
+            <section className="">
+              <h5 className="text-lg font-bold">Rapid writing Services:</h5>
+              <p className="text-sm">
+                We prioritize both speed and excellence in our writing service.
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+      {/* --------------------------//*FAQs------------------------ */}
+      <div className="Container border bgFaq my-8">
+        <div className="flex flex-col justify-center gap-2">
+          <section className="py-10 px-4 w-[70%] mx-auto">
+            <h3 className="text-center  whiteHead ">
+              Seeking a Proficient Essay Writer?
+            </h3>
+            <p className="text-center  text-sm  text-white mt-12 w-[80%] mx-auto">
+              Get top-notch essay writing assistance with our user-friendly
+              service, providing students a wide range of support and
+              exceptional customer care. Achieve expert-level results
+              effortlessly with our experienced professionals.
+            </p>
+          </section>
+          <div className="w-[50%] mx-auto mb-12 ">
+            <div>
+              <h3 className="font-bold text- 2xl-10 text-center whiteHead">
+                Frequently asked Question
+              </h3>
+            </div>
+
+            <Accordion type="single" collapsible className="text-white">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-md">
+                  Why must I pay upfront for my essay writing?
+                </AccordionTrigger>
+                <AccordionContent className="text-justify">
+                  Our team consists of genuine professionals, and we highly
+                  appreciate their time and contributions, ensuring they receive
+                  fair pay and compensation. Hence, we request our clients to
+                  make upfront payments as a sign of their financial capacity to
+                  support our writers efforts. To ensure our clients confidence,
+                  we offer a money-back guarantee and withhold the funds until
+                  you approve the final work to your satisfaction.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-md">
+                  Is the payment is advance or after work?
+                </AccordionTrigger>
+                <AccordionContent className="text-justify">
+                  Our team consists of genuine professionals, and we highly
+                  appreciate their time and contributions, ensuring they receive
+                  fair pay and compensation. Hence, we request our clients to
+                  make upfront payments as a sign of their financial capacity to
+                  support our writers efforts. To ensure our clients confidence,
+                  we offer a money-back guarantee and withhold the funds until
+                  you approve the final work to your satisfaction.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-md">
+                  Who are the writers handling your order?
+                </AccordionTrigger>
+                <AccordionContent className="text-justify">
+                  Lorem ipsum dolor sit amet consectetur adipisicing, elit.
+                  Atque iusto porro esse ea repellat consequuntur maxime,
+                  mollitia voluptatem ratione quod quaerat obcaecati
+                  dignissimos, hic, voluptas delectus earum illum possimus
+                  repellendus.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-md">
+                  How can I trust you to write my essay without any scam?
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-jsutify">
+                  Lorem ipsum dolor sit amet consectetur adipisicing, elit.
+                  Atque iusto porro esse ea repellat consequuntur maxime,
+                  mollitia voluptatem ratione quod quaerat obcaecati
+                  dignissimos, hic, voluptas delectus earum illum possimus
+                  repellendus.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {/* --------------------------//*Subscribe------------------------ */}
+
+      <div className="   flex justify-between py-2 px-16 bg-slate-500 border">
+        <p className="text-white">
+          Subscribe now to receive an exclusive 15% discount coupon to your
+          email!
+        </p>
+        <div className="flex justify-center gap-4 ">
+          <input
+            type="text"
+            placeholder="Enter your Email"
+            className="rounded-full bg-white px-2 py-1 "
+          />
+          <Button className="rounded-sm bg-purple-500 text-white py-1 px-2">
+            Subscribe
+          </Button>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* --------------------------//*Footer------------------------ */}
     </main>
   );
 }
