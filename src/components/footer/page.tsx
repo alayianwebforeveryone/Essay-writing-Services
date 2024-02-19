@@ -8,7 +8,7 @@ function Footer() {
     <div className="container flex flex-col justify-center gap-12  text-white text-sm items-center bg-topBottom bg-purple-700  py-8">
       <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-24 items-center">
         <div className="mx-auto  ">
-          <Image src="/logo.png" alt=" logo" height={70} width={70}></Image>
+          <Image src="/Logo.png" alt=" logo" height={70} width={70}></Image>
         </div>
         <div className="md:py-12 px-8">
           <p>
