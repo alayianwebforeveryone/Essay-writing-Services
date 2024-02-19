@@ -19,12 +19,12 @@ function Writers() {
   //   const {} = props;
 
   return (
-    <div className="container mt-40">
-      <section className="">
+    <div className="container mt-12 md:mt-40">
+      <section className="px-4 md:px-0">
         <h1 className="text-center my-4 headTwo text-bold ">
           We have available expert essay writer
         </h1>
-        <p className="text-center text-[14px] leading-6 w-[50%] mx-auto">
+        <p className="md:text-center text-justify text-[14px] leading-6 md:w-[50%] w-[100%] mx-auto">
           TopWritingService, a reputable platform, collaborates with
           highly-rated professional essay writers available online. We provide
           exceptional online writing services that connect students seeking
@@ -38,9 +38,9 @@ function Writers() {
       <CarousalContainer />
       {/* //* =========================Carousal ENDING======================= */}
 
-      <div className="flex justify-center  gap-10 px-12 py-8">
+      <div className="flex justify-center flex-col md:flex-row gap-10 md:px-12 py-8">
         {/* --------first--- */}
-        <div className="flex justify-center w-[30%] gap-4 flex-col">
+        <div className="flex    justify-center md:w-[30%] gap-4 flex-col">
           <h1 className="headTwo w-full">Our Service Reviews</h1>
           <p className="w-[90%] text-">
             Our service has received enthusiastic praise from clients!

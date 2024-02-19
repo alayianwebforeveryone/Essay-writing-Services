@@ -31,7 +31,7 @@ function WritersCard(props: cardProps) {
   return (
     <Card className="bg-purple-200">
       <CardHeader>
-        <CardTitle className="text-center w-[40%] flex mx-auto text-purple-900   font-bold text-lg">
+        <CardTitle className="text-center md:w-[40%] flex mx-auto text-purple-900   font-bold text-lg">
           {title}
         </CardTitle>
         <CardDescription className="flex text-sm text-center font-bold justify-center w-full ">

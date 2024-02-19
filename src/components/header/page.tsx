@@ -6,11 +6,11 @@ import { useState } from "react";
 function NavBar() {
   const [navbar, setNavbar] = useState(false);
   return (
-    <div className="">
-      <nav className="w-full bg-topBottom  bg- fixed top-0 left-0 right-0 z-10">
-        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
-          <div>
-            <div className="flex items-center justify-between py-3 md:py-5 md:block">
+    <div className="w-full">
+      <nav className="md:w-[100%]   bg-topBottom   right-0 z-10 box-border">
+        <div className="justify-between px-4 box-borer w-[100%] mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+          <div className="box-border w-[100%]">
+            <div className="flex items-center box-border justify-between py-3 md:py-5 md:block">
               {/* LOGO */}
               <Link href="/">
                 <Image
@@ -44,10 +44,10 @@ function NavBar() {
           <div>
             <div
               className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-                navbar ? "p-12 md:p-0 block" : "hidden"
+                navbar ? " md:p-0 block" : "hidden"
               }`}
             >
-              <ul className="h-screen md:h-auto items-center justify-center md:flex ">
+              <ul className=" md:h-auto items-center justify-center md:flex ">
                 <li className="pb-6 text-md text-white py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-purple-900  border-purple-900 md:hover:text-cyan-300   md:hover:bg-transparent">
                   <Link href="/" onClick={() => setNavbar(!navbar)}>
                     Home

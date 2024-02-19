@@ -20,7 +20,7 @@ const dataOne = [
 function CourseWork() {
   return (
     <div>
-      <div className="  grid bgGeneral py-8 rounded-lg px-4 justify-center gap-8 grid-cols-3">
+      <div className=" scrollbar-thumb-[#276886] scrollbar   overflow-y-auto h-72  grid bgGeneral py-8 rounded-lg px-4 justify-center gap-8 md:grid-cols-3 ">
         {[
           dataOne.map((item, index) => {
             return (

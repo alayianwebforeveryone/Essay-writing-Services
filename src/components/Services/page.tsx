@@ -8,7 +8,7 @@ function ServicesComp() {
 
   return (
     <div>
-      <div className="w-[60%] mx-auto flex-col items-center my-12   flex justify-center gap-6">
+      <div className="md:w-[60%]  md:mx-auto mx-4 flex-col items-center my-12   flex justify-center gap-6">
         <h1 className="headTwo text-center">Types of Services</h1>
         <p className=" text-center">
           Our range of writer services caters to all your writing assignments.

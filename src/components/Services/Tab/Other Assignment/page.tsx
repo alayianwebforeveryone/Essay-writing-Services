@@ -11,7 +11,7 @@ const dataOne = [
 function OtherAssignment() {
   return (
     <div>
-      <div className="  flex flex-col   bgGeneral py-8 rounded-lg px-4 justify-center gap-8 ">
+      <div className="  flex flex-col    bgGeneral py-8 rounded-lg px-4 justify-center gap-8 ">
         {[
           dataOne.map((item, index) => {
             return (

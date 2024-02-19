@@ -1,23 +1,42 @@
+"use client";
+import { init } from "next/dist/compiled/webpack/webpack";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { SyntheticEvent, useState } from "react";
 
 // interface Props {}
 
 function Login() {
   // const {} = props
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter(); 
+
+  const submit = async (e: SyntheticEvent) => {
+    e.preventDefault();
+
+    await fetch("http://localhost:3000/Signin", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Contenet-type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    await router.push("/");
+
+  }
 
   return (
-    <div className="block max-w-sm rounded-lg mx-auto mb-12  bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 mt-40">
+    <div className="block max-w-sm rounded-lg mb-12 md:mx-auto mx-12  bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:mt-40 mt-12">
       <div className="flex justify-end -mt-4 ">
         <Link
           href="/"
-          className="hover:shadow-lg -py-2 rounded-full bg-[#209fc5] hover:bg-slate-800  "
+          className="hover:shadow-lg -py-2 rounded-full bg-[#209fc5] hover:bg-slate-800"
         >
           <Image src="/end.svg" alt="close" height={28} width={28}></Image>
         </Link>
       </div>
-      <form>
+      <form onSubmit={submit}>
         <div className="relative mb-12" data-te-input-wrapper-init>
           <input
             type="email"
@@ -25,6 +44,8 @@ function Login() {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label className="pointer-events-none absolute left-3 top-2 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
             Email address
@@ -45,6 +66,8 @@ function Login() {
             className="peer block min-h-[auto] my-4 w-full rounded-sm border bg-transparent px-3 pt-4 pb-[0.32rem] leading-[1.6] outline-none  transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
             id="exampleInputPassword1"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label className="pointer-events-none absolute left-3 top-2 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
             Password

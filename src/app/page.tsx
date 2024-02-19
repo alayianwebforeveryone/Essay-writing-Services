@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -21,10 +21,20 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    async () => {
+      const response = await fetch("http://localhost:3000/Signup", {
+        credentials: "include",
+      });
+      const Contenet = await response.json();
+      console.log("🚀 ~ Contenet:", Contenet);
+    };
+  });
+
   return (
-    <main className="">
-      <div className="flex justify-around    w-full h-auto py-48  border ">
-        <div className="w-[40%]  ">
+    <main className=" box-border border-2 border-blue-300">
+      <div className="flex md:justify-around justify-center items-center md:flex-row flex-col   w-full h-auto md:py-48 py-12  border ">
+        <div className="md:w-[40%] text-center md:text-left px-4  ">
           <h4 className="headTwo">Essay writing service your perfect essay</h4>
           <p className="text-md mt-4 leading-6">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
@@ -32,20 +42,62 @@ export default function Home() {
             nam veritatis accusantium exercitationem ullam odit voluptatibus aut
             corporis nihil inventore a.
           </p>
-          <Button className="rounded-full mt-10 bg-purple-700 py-2 text-white hover:text-black hover:bg-purple-400 px-2">
+          <Button className="rounded-full md:mt-10 my-8  bg-purple-700 py-2 text-white hover:text-black hover:bg-purple-400 px-2">
             Start Writing Services
           </Button>
         </div>
-        <div className=" w-[30%]">
-          <div className="absolute top-20 right-16  ">
+        <div className=" md:w-[40%] w-[90%] flex justify-center   bgCircle">
+          <div className="w-[80%] md:w-[55%]">
+            <div className="py-4  flex flex-col relative mt-4 px-2 border rounded-2xl w-[100%] bg-purple-500">
+              <h4 className="text-center text-white font-bold text-lg">
+                Calculate Price
+              </h4>
+              <button className=" w-[80%]  mx-auto mt-4 bg-white rounded-lg text-sm text-black  border py-1  hover:text-black hover:bg-purple-400 ">
+                Analytical Essay
+              </button>
+
+              <button
+                title=""
+                className="w-[80%] mx-auto mt-4 bg-white rounded-lg text-sm text-black  border py-1  hover:text-black hover:bg-purple-400  "
+              >
+                School Essay
+              </button>
+
+              <button className=" w-[80%] mx-auto -py-1 mt-4 bg-white rounded-lg text-sm text-black  border py-1  hover:text-black hover:bg-purple-400 ">
+                With in 24 hour
+              </button>
+
+              <div className="flex justify-between gap-12 border px-2 py-1 mt-4 text-center">
+                <button
+                  onClick={Increment}
+                  className="border leading-2 -py  px-2 hover:bg-slate-600 text-white bg-purple-800 rounded text-lg"
+                >
+                  +
+                </button>
+                <p>{page}</p>
+                <button
+                  onClick={decreament}
+                  className="border leading-4 px-[11px] hover:bg-slate-600 text-white bg-purple-800 rounded text-lg"
+                >
+                  -
+                </button>
+              </div>
+              <Button className=" w-[90%] mx-auto text-white mt-4 bg-blue-400 rounded-lg text-sm    border -py-1  hover:text-black hover:bg-purple-400 ">
+                Order now
+              </Button>
+            </div>
+          </div>
+          {/* <div className="absolute top-20 right-16  ">
             <Image
               src="/circleHeader.png"
               alt="circle-design"
               width="550"
               height="700"
             ></Image>
-          </div>
-          <div className="py-4  flex flex-col justify-center items-center relative mt-4 px-2 border rounded-2xl w-[70%] bg-purple-500">
+
+            
+          </div> */}
+          {/* <div className="py-4  flex flex-col justify-center items-center relative mt-4 px-2 border rounded-2xl w-[70%] bg-purple-500">
             <h4 className="text-center text-white font-bold text-lg">
               Calculate Price
             </h4>
@@ -82,19 +134,19 @@ export default function Home() {
             <Button className=" w-[90%] mx-auto text-white mt-4 bg-blue-400 rounded-lg text-sm    border -py-1  hover:text-black hover:bg-purple-400 ">
               Order now
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* --------------------------//*Discover the un parallel Advantages--------------- */}
 
-      <div className="py- border px-2 ">
+      <div className="py- border px-2  box-border">
         <h1 className="text-center mb-8 headTwo">
           Discover the unparalled advantages of our services{" "}
         </h1>
-        <div className=" flex justify-between px-16 ">
+        <div className=" flex justify-between flex-col md:flex-row md:px-16 px-4 ">
           {/* //! ---------------left text */}
-          <div className="flex justify-center gap-4 flex-col">
-            <div className="">
+          <div className="flex justify-center gap-4 flex-col py-8 md:py-0 ">
+            <div className="text-center md:text-left ">
               <h5 className="text-lg font-bold">
                 Carefully selected essay writers
               </h5>
@@ -102,7 +154,7 @@ export default function Home() {
                 Stay completely anonymous with our paper writing service.
               </p>
             </div>
-            <section className="">
+            <section className="text-center md:text-left ">
               <h5 className="text-lg font-bold">Rapid writing Services:</h5>
               <p className="text-sm">
                 We prioritize both speed and excellence in our writing service.
@@ -110,7 +162,7 @@ export default function Home() {
             </section>
           </div>
           {/* //! center part */}
-          <div className=" border-purple-500 border-2 pb-1 ">
+          <div className=" border-purple-500 w-[100%] md:w-[28%] border-2 pb-1 ">
             <div className="text-center mb-4">
               <h3>Feature you will get free</h3>
             </div>
@@ -161,8 +213,8 @@ export default function Home() {
             </div>
           </div>
           {/* //! ---------------rigth text */}
-          <div className="flex justify-center gap-4 flex-col">
-            <section className="">
+          <div className="flex justify-center gap-4 flex-col  py-8 md:py-0">
+            <section className="text-center md:text-left ">
               <h5 className="text-lg font-bold">
                 Carefully selected essay writers
               </h5>
@@ -170,7 +222,7 @@ export default function Home() {
                 Stay completely anonymous with our paper writing service.
               </p>
             </section>
-            <section className="">
+            <section className="text-center md:text-left ">
               <h5 className="text-lg font-bold">Rapid writing Services:</h5>
               <p className="text-sm">
                 We prioritize both speed and excellence in our writing service.
@@ -182,18 +234,18 @@ export default function Home() {
       {/* --------------------------//*FAQs------------------------ */}
       <div className="Container border bgFaq my-8">
         <div className="flex flex-col justify-center gap-2">
-          <section className="py-10 px-4 w-[70%] mx-auto">
+          <section className="py-10 px-4 md:w-[70%]  mx-auto">
             <h3 className="text-center  whiteHead ">
               Seeking a Proficient Essay Writer?
             </h3>
-            <p className="text-center  text-sm  text-white mt-12 w-[80%] mx-auto">
+            <p className="md:text-center text-justify  md:text-sm  text-white mt-12 md:w-[80%] mx-auto">
               Get top-notch essay writing assistance with our user-friendly
               service, providing students a wide range of support and
               exceptional customer care. Achieve expert-level results
               effortlessly with our experienced professionals.
             </p>
           </section>
-          <div className="w-[50%] mx-auto mb-12 ">
+          <div className="md:w-[50%] mx-auto mb-12 px-8 md:px-0 ">
             <div>
               <h3 className="font-bold text- 2xl-10 text-center whiteHead">
                 Frequently asked Question
@@ -260,7 +312,7 @@ export default function Home() {
 
       {/* --------------------------//*Subscribe------------------------ */}
 
-      <div className="   flex justify-between py-2 px-16 bg-slate-500 border">
+      <div className="  box-border w-[100% ] flex-col gap-4 md:gap-0 md:flex-row flex justify-between py-2 px-2  md:px-16 bg-slate-500 border">
         <p className="text-white">
           Subscribe now to receive an exclusive 15% discount coupon to your
           email!

@@ -29,12 +29,12 @@ function Step() {
   // const {} = props
 
   return (
-    <div className="m-20  rounded  ">
+    <div className="md:m-20 m-4   rounded  ">
       <div className="flex flex-col justify-center items-center gap-8">
         <h1 className="headTwo text-center ">
           How Our Essay Writing Service Function
         </h1>
-        <p className="w-[75%] text-justify ">
+        <p className="md:w-[75%] md:px-0 px-2 text-justify ">
           To commence, the initial step is to establish an account. The
           registration procedure is swift and uncomplicated, requiring only a
           few moments of your time. Throughout this process, you will be asked
@@ -53,7 +53,7 @@ function Step() {
           {data.map((item, index) => {
             return (
               <div key={index}>
-                <div className="flex items-center justify-center">
+                <div className=" hidden md:flex items-center justify-center">
                   <Image
                     src="/rightArrow.svg"
                     alt="rigth Arrow"
@@ -63,7 +63,7 @@ function Step() {
                   <StepCircle stepNumber={item.stepNum} />
                 </div>
 
-                <div className="flex justify-center pl-20 text-center">
+                <div className=" hidden md:flex justify-center pl-20 text-center">
                   <StepTitle title={item.title} />
                 </div>
               </div>

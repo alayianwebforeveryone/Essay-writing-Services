@@ -53,7 +53,7 @@ function PaperWork() {
 
   return (
     <div>
-      <div className="  grid bgGeneral py-8 rounded-lg px-4 justify-center gap-8 grid-cols-3">
+      <div className="  grid bgGeneral scrollbar-thumb-[#276886] py-8 rounded-lg px-4 justify-center h-72 md:h-auto scrollbar   overflow-y-auto  gap-8 md:grid-cols-3">
         {[
           dataOne.map((item, index) => {
             return (

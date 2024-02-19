@@ -1,14 +1,31 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { SyntheticEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 
 // interface Props {}
 
 function Login() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const submit = async (e: SyntheticEvent) => {
+    e.preventDefault();
+
+    await fetch("http://localhost:3000/Signin", {
+      method: "POST",
+      headers: { "Contenet-type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
+    });
+    await router.push("/Signin");
+  };
+
   // const {} = props
 
   return (
-    <div className="block max-w-sm rounded-lg mx-auto mb-12  bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 mt-40">
+    <div className="block max-w-sm rounded-lg mt-12 mb-12 md:mx-auto mx-12  bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:mt-40">
       <div className="flex justify-end -mt-4 ">
         <Link
           href="/"
@@ -17,14 +34,15 @@ function Login() {
           <Image src="/end.svg" alt="close" height={28} width={28}></Image>
         </Link>
       </div>
-      <form>
+      <form onSubmit={submit}>
         <div className="relative " data-te-input-wrapper-init>
           <input
-            type="email"
+            type="text"
             className="peer block min-h-[auto] my-4 w-full rounded-sm border bg-transparent px-3 pt-4 pb-[0.32rem] leading-[1.6] outline-none  transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter email"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label className="pointer-events-none absolute left-3 top-2 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
             Full Name
@@ -35,8 +53,10 @@ function Login() {
             type="email"
             className="peer block min-h-[auto] my-4 w-full rounded-sm border bg-transparent px-3 pt-4 pb-[0.32rem] leading-[1.6] outline-none  transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
             id="exampleInputEmail1"
+            value={email}
             aria-describedby="emailHelp"
             placeholder="Enter email"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label className="pointer-events-none absolute left-3 top-2 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
             Email address
@@ -56,7 +76,9 @@ function Login() {
             type="password"
             className="peer block min-h-[auto] my-4 w-full rounded-sm border bg-transparent px-3 pt-4 pb-[0.32rem] leading-[1.6] outline-none  transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
             id="exampleInputPassword1"
+            value={password}
             placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label className="pointer-events-none absolute left-3 top-2 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
             Set Password
